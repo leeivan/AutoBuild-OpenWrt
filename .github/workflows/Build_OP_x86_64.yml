@@ -65,7 +65,6 @@ jobs:
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        ./scripts/feeds install -a
         ./scripts/feeds install -a -f -p PWpackages
         ./scripts/feeds install luci-app-passwall
 
