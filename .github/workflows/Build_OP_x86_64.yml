@@ -24,6 +24,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        set FORCE_UNSAFE_CONFIGURE=1
         set +e
         docker rmi `docker images -q`
         echo "Deleting files, please wait ..."
