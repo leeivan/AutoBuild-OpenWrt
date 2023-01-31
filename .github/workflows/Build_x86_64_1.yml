@@ -69,8 +69,8 @@ jobs:
          pushd feeds/packages/lang
          rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/golang
          popd
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
+         ./scripts/feeds update -a
+         ./scripts/feeds install -a
 
     # - name: Import external feeds - passwall
     #   working-directory: ./openwrt
