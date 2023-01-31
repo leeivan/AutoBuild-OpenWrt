@@ -60,6 +60,8 @@ jobs:
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
+         ./scripts/feeds clean
+         ./scripts/feeds update -a
          # 添加UPX
          sudo apt-get install upx -y
          cp /usr/bin/upx staging_dir/host/bin
@@ -68,7 +70,6 @@ jobs:
          pushd feeds/packages/lang
          rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/golang
          popd
-         ./scripts/feeds update -a
          ./scripts/feeds install -a
 
     # - name: Import external feeds - passwall
