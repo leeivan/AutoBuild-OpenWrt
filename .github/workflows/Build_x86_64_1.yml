@@ -45,12 +45,12 @@ jobs:
 
     - name: Clone source code
       env: 
-        # REPO_URL: https://github.com/coolsnowwolf/lede
-        REPO_URL: https://github.com/Lienol/openwrt
+        REPO_URL: https://github.com/coolsnowwolf/lede
+        # REPO_URL: https://github.com/Lienol/openwrt
         REPO_BRANCH: master
       run: |
-        git clone -b 21.02 --single-branch $REPO_URL openwrt
-        # git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        #git clone -b 21.02 --single-branch $REPO_URL openwrt
+        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         # echo "src-git lienol https://github.com/Lienol/openwrt-package.git;main" >> ./feeds.conf.default
         # echo "src-git other https://github.com/Lienol/openwrt-package.git;other" >> ./feeds.conf.default
@@ -67,9 +67,9 @@ jobs:
          cp /usr/bin/upx staging_dir/host/bin
          cp /usr/bin/upx-ucl staging_dir/host/bin
          # 更新Goleng
-         pushd feeds/packages/lang
-         rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/golang
-         popd
+         # pushd feeds/packages/lang
+         # rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/golang
+         # popd
          ./scripts/feeds install -a
 
     # - name: Import external feeds - passwall
