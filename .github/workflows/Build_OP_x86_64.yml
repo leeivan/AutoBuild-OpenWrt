@@ -24,7 +24,6 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        set FORCE_UNSAFE_CONFIGURE=1
         set +e
         docker rmi `docker images -q`
         echo "Deleting files, please wait ..."
@@ -99,6 +98,8 @@ jobs:
     - name: Build firmware
       working-directory: ./openwrt
       run: |
+        export GO111MODULE=on
+        export GOPROXY=https://goproxy.cn,direct
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
 
