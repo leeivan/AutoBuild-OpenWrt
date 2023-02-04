@@ -72,6 +72,11 @@ jobs:
          # popd
          ./scripts/feeds install -a
 
+    - name: Import external feeds - alist
+      working-directory: ./openwrt
+      run: |
+       git clone https://github.com/sbwml/luci-app-alist package/alist
+       
     # - name: Import external feeds - passwall
     #   working-directory: ./openwrt
     #   run: |
@@ -85,7 +90,7 @@ jobs:
 
     - name: Configuration Customization - Build_x86_64
       env:
-        CONFIG_FILE: 'x86_64_4.config'
+        CONFIG_FILE: 'x86_64_5.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
