@@ -67,9 +67,9 @@ jobs:
          ./scripts/feeds clean
          ./scripts/feeds update -a
          # 添加UPX
-         sudo apt-get install upx -y
-         cp /usr/bin/upx staging_dir/host/bin
-         cp /usr/bin/upx-ucl staging_dir/host/bin
+         #sudo apt-get install upx -y
+         #cp /usr/bin/upx staging_dir/host/bin
+         #cp /usr/bin/upx-ucl staging_dir/host/bin
          # 更新Goleng
          # pushd feeds/packages/lang
          # rm -rf golang && svn co https://github.com/openwrt/packages/branches/openwrt-21.02/lang/golang
